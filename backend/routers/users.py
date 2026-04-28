@@ -8,11 +8,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
 
 @router.post("/sync")
 async def sync_user_profile(uid: str = Depends(verify_user)):
-    """
-    Because of 'Depends(verify_user)', this code only runs IF the token is valid.
-    It checks Firestore for the user and creates them if they don't exist.
-    """
-    # 1. Point to the specific user's document in the "users" collection
+    
     user_ref = db.collection("users").document(uid)
     
     # 2. Fetch the document from Firestore
