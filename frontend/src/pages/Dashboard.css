@@ -1,0 +1,240 @@
+/* frontend/src/pages/Dashboard.css */
+
+:root {
+  /* TUMHARA NAYA THEME */
+  --c-slate: #696D7D;    /* Blue Slate */
+  --c-icy: #BDE0FE;      /* Icy Blue */
+  --c-oxblood: #92140C;  /* Oxblood */
+  --c-apricot: #FFCF99;  /* Apricot Cream */
+  --c-mint: #77FF94;     /* Mint Glow */
+  
+  --c-dark: #1E1E24;     
+  --c-light: #f8fafc;    /* Text ke liye Naya Light Color */
+}
+
+.dashboard-container {
+  /* YAHI HAI WOH DARK GRADIENT! */
+  background: linear-gradient(135deg, #1E1E24 0%, #0f172a 100%);
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--c-light);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: rgba(255, 255, 255, 0.03); /* Glass effect */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--c-oxblood), var(--c-apricot));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.profile-section { position: relative; }
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 30px;
+  transition: background-color 0.2s;
+}
+
+.profile-trigger:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.user-email {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--c-light);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--c-slate); 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.dropdown-icon { font-size: 10px; color: var(--c-slate); }
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #1E1E24;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  width: 220px;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  padding: 14px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--c-light);
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover { background-color: rgba(255, 255, 255, 0.05); }
+
+.dropdown-item.logout {
+  color: var(--c-oxblood);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+}
+
+.dropdown-item.logout:hover {
+  background-color: var(--c-oxblood);
+  color: white;
+}
+
+.main-content {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-light);
+  margin-bottom: 20px;
+}
+
+/* Cards ke liye Dark Glass Effect */
+.form-card, .job-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 40px;
+}
+
+.job-card { padding: 24px; margin-bottom: 0; }
+
+.input-group { display: flex; flex-direction: column; gap: 16px; }
+
+.input-field {
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--c-light);
+}
+
+.input-field::placeholder { color: #94a3b8; }
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--c-oxblood); 
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(146, 20, 12, 0.2); 
+}
+
+.btn-primary {
+  padding: 14px 24px;
+  background-color: var(--c-oxblood); 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--c-slate); 
+  transform: translateY(-2px);
+}
+
+.history-list { display: flex; flex-direction: column; gap: 16px; }
+
+.job-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+
+.job-url { font-weight: 700; color: var(--c-icy); word-break: break-all; }
+
+.status-badge {
+  padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800;
+}
+
+.status-completed {
+  background-color: rgba(119, 255, 148, 0.2); 
+  color: var(--c-mint); 
+  border: 1px solid var(--c-mint);
+}
+
+.btn-dropdown {
+  background-color: transparent;
+  color: var(--c-slate);
+  border: 1px solid var(--c-slate);
+  padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer;
+}
+
+.btn-dropdown:hover { background-color: var(--c-slate); color: white; }
+
+.queries-container {
+  display: flex; flex-direction: column; gap: 15px; margin-top: 15px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.1); padding-top: 15px;
+}
+
+.query-item { padding: 15px; border-radius: 8px; }
+
+.latest-query {
+  border-left: 5px solid var(--c-oxblood);
+  background-color: rgba(146, 20, 12, 0.1); 
+}
+
+.older-query {
+  border-left: 5px solid var(--c-slate);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.job-date { font-size: 13px; color: var(--c-slate); margin-bottom: 8px; }
+
+.query-question {
+  font-size: 15px; color: var(--c-light); margin-bottom: 12px; line-height: 1.5;
+}
+
+.data-preview {
+  background-color: rgba(0, 0, 0, 0.2); padding: 12px 16px; border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer;
+}
+
+.data-preview summary { font-weight: 700; color: var(--c-apricot); outline: none; }
+
+.data-code {
+  background-color: #000000;
+  color: var(--c-mint); 
+  padding: 16px; border-radius: 8px; font-size: 13px; margin-top: 12px; overflow-x: auto;
+}

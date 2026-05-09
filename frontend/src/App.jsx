@@ -5,6 +5,7 @@ import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import Auth from './pages/Auth';
 import Dashboard from './pages/Dashboard'; // Dashboard ko import kiya
+import Profile from './pages/Profile';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -36,7 +37,9 @@ function App() {
           path="/dashboard" 
           element={user ? <Dashboard /> : <Navigate to="/" />} 
         />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
+      
     </BrowserRouter>
   );
 }

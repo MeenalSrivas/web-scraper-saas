@@ -82,6 +82,7 @@ async def create_scraping_job(request: ScrapingRequest, uid: str = Depends(verif
     new_job = {
         "uid": uid,  
         "target_url": request.target_url,
+        "instructions": request.instructions,
         "status": "completed",
         "result_data": scraped_data, 
         "created_at": datetime.now(timezone.utc)

@@ -1,0 +1,168 @@
+/* frontend/src/pages/Profile.css */
+
+:root {
+  /* SAME THEME AS DASHBOARD */
+  --c-slate: #696D7D;    /* Blue Slate */
+  --c-icy: #BDE0FE;      /* Icy Blue */
+  --c-oxblood: #92140C;  /* Oxblood */
+  --c-apricot: #FFCF99;  /* Apricot Cream */
+  --c-mint: #77FF94;     /* Mint Glow */
+  
+  --c-dark: #1E1E24;     
+  --c-light: #f8fafc;    
+}
+
+.profile-page {
+  /* DARK GRADIENT BACKGROUND */
+  background: linear-gradient(135deg, #1E1E24 0%, #0f172a 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 60px 15%; 
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--c-light);
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 600px;
+  background: transparent; 
+  box-shadow: none;
+  padding: 0; 
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--c-slate); 
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.back-btn:hover { 
+  color: var(--c-icy); /* Hover pe Icy Blue */
+}
+
+h2 {
+  color: var(--c-light); /* Heading white/light hogi dark theme mein */
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle transparent line */
+  padding-top: 30px;
+}
+
+.profile-form label {
+  font-weight: 700;
+  color: var(--c-slate); 
+  font-size: 14px;
+  margin-bottom: -12px; 
+}
+
+/* INPUTS: Dark Glass Effect */
+.profile-form input[type="text"], 
+.profile-form textarea, 
+.profile-form select {
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.05); /* Glass transparency */
+  color: var(--c-light);
+  transition: all 0.2s;
+}
+
+.profile-form input::placeholder, 
+.profile-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* FOCUS STATE: Oxblood Glow */
+.profile-form input[type="text"]:focus, 
+.profile-form textarea:focus, 
+.profile-form select:focus {
+  outline: none;
+  border-color: var(--c-oxblood); 
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(146, 20, 12, 0.2); 
+}
+
+/* Select dropdown fix for dark mode */
+.profile-form select option {
+  background-color: var(--c-dark);
+  color: var(--c-light);
+}
+
+.radio-group {
+  display: flex;
+  gap: 30px;
+  margin-top: 5px;
+}
+
+.radio-group label {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-light);
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: var(--c-oxblood); 
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: var(--c-oxblood); /* Oxblood button */
+  color: white;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+  width: max-content; 
+}
+
+.save-btn:hover:not(:disabled) { 
+  background-color: var(--c-slate); 
+  transform: translateY(-2px);
+}
+
+.save-btn:disabled {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--c-slate);
+  cursor: not-allowed;
+}
+
+/* STATUS MESSAGE: Mint Glow Theme */
+.status-msg {
+  padding: 12px;
+  background-color: rgba(119, 255, 148, 0.1); 
+  color: var(--c-mint);
+  border: 1px solid rgba(119, 255, 148, 0.3);
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 10px;
+  display: inline-block;
+}
