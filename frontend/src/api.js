@@ -4,7 +4,7 @@ import { auth } from './firebase';
 
 // Ek base instance banao jo humesha hamare Python backend (port 8000) par request bhejega
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000', 
+    baseURL: 'https://scrappy-backend-1s2t.onrender.com', 
 });
 
 // Axios Interceptor: Request bhejne se pehle yeh code chalega
