@@ -8,7 +8,7 @@ app = FastAPI(title="Web Scraper SaaS API (Firebase Edition)")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], # Tumhara React Vite ka URL
+    allow_origins=["http://localhost:5173","https://web-scraper-saas-seven.vercel.app"], # Tumhara React Vite ka URL
     allow_credentials=True,
     allow_methods=["*"], # Allow all methods (GET, POST, etc.)
     allow_headers=["*"], # Allow all headers (like Authorization)
