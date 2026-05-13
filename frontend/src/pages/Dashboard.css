@@ -149,6 +149,12 @@
   outline: none;
   transition: all 0.2s;
 }
+/* Placeholder text ko dark aur visible banane ke liye */
+.input-field::placeholder {
+  color: #888888 !important;
+  
+  opacity: 1; /* Browser ki default fade hatane ke liye */
+}
 
 .input-field:focus {
   border-color: var(--color-border-focus);
