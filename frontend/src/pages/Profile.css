@@ -1,168 +1,172 @@
 /* frontend/src/pages/Profile.css */
 
-:root {
-  /* SAME THEME AS DASHBOARD */
-  --c-slate: #696D7D;    /* Blue Slate */
-  --c-icy: #BDE0FE;      /* Icy Blue */
-  --c-oxblood: #92140C;  /* Oxblood */
-  --c-apricot: #FFCF99;  /* Apricot Cream */
-  --c-mint: #77FF94;     /* Mint Glow */
-  
-  --c-dark: #1E1E24;     
-  --c-light: #f8fafc;    
-}
-
+/* =========================================
+   1. PAGE & CARD LAYOUT
+   ========================================= */
 .profile-page {
-  /* DARK GRADIENT BACKGROUND */
-  background: linear-gradient(135deg, #1E1E24 0%, #0f172a 100%);
+  background-color: var(--color-bg-subtle); /* Gray background */
   min-height: 100vh;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 60px 15%; 
-  font-family: 'Inter', -apple-system, sans-serif;
-  color: var(--c-light);
+  align-items: center; /* Screen ke center mein form rakhne ke liye */
+  justify-content: center;
+  padding: var(--space-6);
+  font-family: var(--font-family-base);
 }
 
 .profile-card {
+  background-color: var(--color-bg-base); /* White Card */
   width: 100%;
-  max-width: 600px;
-  background: transparent; 
-  box-shadow: none;
-  padding: 0; 
+  max-width: 500px;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
+/* =========================================
+   2. HEADER & BUTTONS
+   ========================================= */
 .back-btn {
   background: none;
   border: none;
-  color: var(--c-slate); 
-  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
   cursor: pointer;
-  margin-bottom: 30px;
+  padding: 0;
+  margin-bottom: var(--space-5);
+  transition: color 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 0;
-  transition: color 0.2s;
 }
 
-.back-btn:hover { 
-  color: var(--c-icy); /* Hover pe Icy Blue */
+.back-btn:hover {
+  color: var(--color-brand-primary); /* Maroon on hover */
 }
 
-h2 {
-  color: var(--c-light); /* Heading white/light hogi dark theme mein */
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
+.profile-card h2 {
+  color: var(--color-text-strong);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-5);
 }
 
+/* =========================================
+   3. STATUS MESSAGE
+   ========================================= */
+.status-msg {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-strong);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-5);
+  text-align: center;
+  border: 1px solid var(--color-border-light);
+  font-weight: var(--font-medium);
+}
+
+/* =========================================
+   4. FORM ELEMENTS
+   ========================================= */
 .profile-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle transparent line */
-  padding-top: 30px;
+  gap: var(--space-4);
 }
 
 .profile-form label {
-  font-weight: 700;
-  color: var(--c-slate); 
-  font-size: 14px;
-  margin-bottom: -12px; 
+  font-size: var(--text-sm);
+  color: var(--color-text-strong);
+  font-weight: var(--font-medium);
+  margin-bottom: -4px; /* Label ko input ke thoda paas laane ke liye */
 }
 
-/* INPUTS: Dark Glass Effect */
-.profile-form input[type="text"], 
-.profile-form textarea, 
-.profile-form select {
-  padding: 14px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  font-size: 15px;
-  background-color: rgba(255, 255, 255, 0.05); /* Glass transparency */
-  color: var(--c-light);
-  transition: all 0.2s;
-}
-
-.profile-form input::placeholder, 
-.profile-form textarea::placeholder {
-  color: #94a3b8;
-}
-
-/* FOCUS STATE: Oxblood Glow */
-.profile-form input[type="text"]:focus, 
-.profile-form textarea:focus, 
-.profile-form select:focus {
+/* General Inputs */
+.profile-form input[type="text"],
+.profile-form select,
+.profile-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--color-text-strong);
+  background-color: var(--color-bg-base);
   outline: none;
-  border-color: var(--c-oxblood); 
-  background-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 4px rgba(146, 20, 12, 0.2); 
+  transition: all 0.2s;
+  font-family: inherit;
 }
 
-/* Select dropdown fix for dark mode */
-.profile-form select option {
-  background-color: var(--c-dark);
-  color: var(--c-light);
+/* Focus States (Maroon Glow) */
+.profile-form input[type="text"]:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(122, 40, 85, 0.1);
 }
 
+/* Textarea Specific */
+.profile-form textarea {
+  min-height: 100px;
+  resize: vertical; /* User height adjust kar sakta hai */
+}
+
+/* =========================================
+   5. RADIO BUTTONS (GENDER)
+   ========================================= */
 .radio-group {
   display: flex;
-  gap: 30px;
-  margin-top: 5px;
+  gap: var(--space-5);
+  align-items: center;
+  margin-top: 4px;
 }
 
 .radio-group label {
-  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--c-light);
+  font-weight: var(--font-regular);
   cursor: pointer;
+  margin-bottom: 0;
 }
 
 .radio-group input[type="radio"] {
-  accent-color: var(--c-oxblood); 
-  width: 18px;
-  height: 18px;
+  accent-color: var(--color-brand-primary); /* Radio dot ko maroon banata hai */
+  width: 16px;
+  height: 16px;
   cursor: pointer;
 }
 
+/* =========================================
+   6. SUBMIT BUTTON
+   ========================================= */
 .save-btn {
-  background-color: var(--c-oxblood); /* Oxblood button */
-  color: white;
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  padding: 14px;
   border: none;
-  padding: 16px 30px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
   cursor: pointer;
-  margin-top: 10px;
-  transition: all 0.2s;
-  width: max-content; 
+  transition: background-color 0.2s;
+  margin-top: var(--space-4);
 }
 
-.save-btn:hover:not(:disabled) { 
-  background-color: var(--c-slate); 
-  transform: translateY(-2px);
+.save-btn:hover:not(:disabled) {
+  background-color: var(--color-brand-primary-hover);
 }
 
 .save-btn:disabled {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--c-slate);
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
-/* STATUS MESSAGE: Mint Glow Theme */
-.status-msg {
-  padding: 12px;
-  background-color: rgba(119, 255, 148, 0.1); 
-  color: var(--c-mint);
-  border: 1px solid rgba(119, 255, 148, 0.3);
-  border-radius: 8px;
-  font-weight: 600;
-  margin-top: 10px;
-  display: inline-block;
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .profile-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+  }
 }

@@ -68,7 +68,7 @@ export default function Auth() {
         <div className="auth-form-container">
           <div className="auth-header-light">
             <h2>{isLogin ? 'Login to your Account' : 'Create an Account'}</h2>
-            <p>See what is going on with your business</p>
+            
           </div>
 
           {error && <div className="auth-error-light">{error}</div>}
