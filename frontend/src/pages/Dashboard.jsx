@@ -157,6 +157,8 @@ export default function Dashboard() {
                 const latestJob = urlJobs[0]; // Sabse taazi query
                 const olderJobs = urlJobs.slice(1); // Baaki purani queries
 
+                const isRecent = (new Date() - new Date(latestJob.created_at)) < (24 * 60 * 60 * 1000); 
+
                 return (
                   <div key={url} className="job-card">
                     {/* Header */}
@@ -185,7 +187,7 @@ export default function Dashboard() {
                       <div className="query-item latest-query">
                         <div className="job-date">
                           📅 {new Date(latestJob.created_at).toLocaleString()} 
-                          <span style={{color: '#10b981', fontWeight: 'bold', fontSize: '12px', marginLeft: '8px'}}>(Latest)</span>
+                          {isRecent &&(<span style={{color: '#10b981', fontWeight: 'bold', fontSize: '12px', marginLeft: '8px'}}>(New)</span>)}
                         </div>
                         <div className="query-question">
                           <strong>Q:</strong> {latestJob.instructions || "Older query (Instructions not saved)"}
